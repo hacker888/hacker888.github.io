@@ -8,7 +8,7 @@ window.onload=function () {
     data:{
       msg:[],
       title:'',
-      now:0
+      now:-1
     },
     methods:{
       get :function(ev){
@@ -34,12 +34,17 @@ window.onload=function () {
       },
       changeDown :function(){
         this.now++;
-        if(this.now==this.msg.length)this.now=0;
+        if(this.now==this.msg.length){
+		this.now=0;
+		}
         this.title=this.msg[this.now]
       },
       changeUp :function (ev) {
         this.now--;
-        if (this.now==-1)this.now=this.msg.length;
+        if (this.now==-1){
+		this.now=this.msg.length-1
+		};
+		console.log(this.now)
         ev.preventDefault();
         this.title=this.msg[this.now]
       },
