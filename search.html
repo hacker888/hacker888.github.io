@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="js/vue.js"></script>
+  <script type="text/javascript" src="js/vue-resource.js"></script>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+  <script type="text/javascript" src="js/search.js"></script>
+  <div id="search">
+    <input id="box" type="text" placeholder="  搜你所想" v-model="title"
+           @keyup="get($event)" @keydown.40="changeDown()" @keydown.38="changeUp($event)" @blur="hidden()">
+    <input id="boxSearch" type="button" value="搜索" @click="click()">
+    <ul >
+      <li class="result" v-cloak v-for="(value,index) in msg" :class="{color:index==now}">
+        {{value}}
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
